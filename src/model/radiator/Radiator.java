@@ -14,9 +14,9 @@ public class Radiator
         currentState.turnDown(this);
     }
 
-    public void getPower()
+    public int getPower()
     {
-        currentState.getPower();
+        return currentState.getPower();
     }
 
     void setPowerState(RadiatorState state)
