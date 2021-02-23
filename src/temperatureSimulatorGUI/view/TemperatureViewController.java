@@ -4,6 +4,9 @@ import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
+import temperatureSimulatorGUI.viewmodel.ViewModel;
+
+import javax.swing.text.View;
 
 public class TemperatureViewController
 {
@@ -16,10 +19,10 @@ public class TemperatureViewController
     private ViewHandler viewHandler;
     private TemperatureViewModel temperatureViewModel;
 
-    public void init(ViewHandler viewHandler, TemperatureViewModel viewModel)
+    public void init(ViewHandler viewHandler, ViewModel viewModel)
     {
         this.viewHandler = viewHandler;
-        this.temperatureViewModel = temperatureViewModel;
+        this.temperatureViewModel = (TemperatureViewModel) viewModel;
 /*
         outputLabelTemp1.textProperty().bind(temperatureViewModel.);
         outputLabelTemp2.textProperty().bind(temperatureViewModel.);
