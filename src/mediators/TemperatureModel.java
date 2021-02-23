@@ -1,5 +1,4 @@
 package mediators;
-// todo: everything
 
 import model.temperature.Temperature;
 import util.Subject;
