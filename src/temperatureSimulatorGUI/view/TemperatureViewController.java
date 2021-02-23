@@ -28,6 +28,8 @@ public class TemperatureViewController
         outputLabelTemp2.textProperty().bind(temperatureViewModel.);
         outputLabelTemp3.textProperty().bind(temperatureViewModel.);
 
+        radiatorValue.textProperty().bind(temperatureViewModel.);
+
  */
     }
 
@@ -43,6 +45,7 @@ public class TemperatureViewController
 
     public void warningButtonPressed(ActionEvent actionEvent)
     {
+        //Switch view to WarningView.fxml
     }
 
 }

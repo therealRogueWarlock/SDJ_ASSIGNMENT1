@@ -32,4 +32,8 @@ public class WarningViewController
 
     }
 
+    public void temperatureViewButtonPressed(ActionEvent actionEvent)
+    {
+        //Switch to TemperatureView.fmxl
+    }
 }

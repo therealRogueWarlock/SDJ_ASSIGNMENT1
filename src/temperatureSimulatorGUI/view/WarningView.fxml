@@ -17,7 +17,7 @@
       </Label>
       <TextField fx:id="highValueTextField" layoutX="127.0" layoutY="137.0" />
       <TextField fx:id="lowValueTextField" layoutX="127.0" layoutY="205.0" />
-      <Button layoutX="78.0" layoutY="285.0" mnemonicParsing="false" text="Temperature View" />
+      <Button layoutX="78.0" layoutY="285.0" mnemonicParsing="false" onAction="#temperatureViewButtonPressed" text="Temperature View" />
       <Button layoutX="283.0" layoutY="137.0" mnemonicParsing="false" onAction="#highValueButton" text="Confirm" />
       <Button layoutX="283.0" layoutY="205.0" mnemonicParsing="false" onAction="#lowValueButton" text="Confirm" />
    </children>
