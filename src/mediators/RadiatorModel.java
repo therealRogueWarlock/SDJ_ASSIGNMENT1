@@ -5,5 +5,4 @@ public interface RadiatorModel
     int getCurrentState();
     void turnRadiatorUp();
     void turnRadiatorDown();
-
 }
