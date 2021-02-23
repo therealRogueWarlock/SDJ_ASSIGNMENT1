@@ -22,7 +22,7 @@ public class WarningViewController
 
     public void highValueButton(ActionEvent actionEvent)
     {
-       // warningViewModel.
+       warningViewModel.
     }
 
     public void lowValueButton(ActionEvent actionEvent)
