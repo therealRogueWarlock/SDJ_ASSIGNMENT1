@@ -2,7 +2,6 @@ package model.temperature;
 
 import java.util.ArrayList;
 
-// todo: everything
 public class TemperatureList
 {
     private ArrayList<Temperature> list;
