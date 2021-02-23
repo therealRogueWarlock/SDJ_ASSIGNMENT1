@@ -5,6 +5,7 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import mediators.RadiatorModel;
 import mediators.TemperatureModel;
 import model.temperature.Temperature;
 
@@ -13,7 +14,8 @@ import java.beans.PropertyChangeEvent;
 // todo: everything
 public class TemperatureViewModel implements ViewModel{
 
-    TemperatureModel model;
+    private TemperatureModel temperatureModel;
+    private RadiatorModel radiatorModel;
 
     private DoubleProperty temperature;
 
@@ -24,8 +26,10 @@ public class TemperatureViewModel implements ViewModel{
     private String filteredId;
 
 
-    public TemperatureViewModel(TemperatureModel model) {
-        this.model = model;
+    public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
+
+        this.temperatureModel = temperatureModel;
+        this.radiatorModel = radiatorModel;
 
         output = new SimpleStringProperty();
         temperature = new SimpleDoubleProperty();
@@ -34,7 +38,8 @@ public class TemperatureViewModel implements ViewModel{
         filterLabel = new SimpleStringProperty();
         filterLabel.setValue("All");
 
-        model.addListener("tempChange", this);
+        temperatureModel.addListener("tempChange", this);
+        radiatorModel.addListener("PowerChange", this);
 
     }
 
@@ -43,7 +48,7 @@ public class TemperatureViewModel implements ViewModel{
 
             // last measured temp from selected id.
             System.out.println(filteredId);
-            Temperature lastMeasuredTemperature = model.getLastInsertedTemperature(filteredId);
+            Temperature lastMeasuredTemperature = temperatureModel.getLastInsertedTemperature(filteredId);
 
             if (lastMeasuredTemperature != null) {
                 output.setValue(lastMeasuredTemperature.toString());

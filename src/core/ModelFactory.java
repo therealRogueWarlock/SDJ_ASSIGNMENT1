@@ -1,7 +1,5 @@
 package core;
 
-// todo: everything
-
 import mediators.RadiatorModel;
 import mediators.RadiatorModelManager;
 import mediators.TemperatureModel;
@@ -29,7 +27,6 @@ public class ModelFactory {
             radiatorModel = new RadiatorModelManager();
 
         }
-
         return radiatorModel;
     }
 

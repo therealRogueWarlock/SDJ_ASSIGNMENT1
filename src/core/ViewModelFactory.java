@@ -46,7 +46,9 @@ public class ViewModelFactory {
 
     public TemperatureViewModel getTemperatureViewModel() {
         if (temperatureViewModel == null){
-            temperatureViewModel = new TemperatureViewModel(modelFactory.getTemperatureModel());
+            temperatureViewModel =
+                    new TemperatureViewModel(
+                            modelFactory.getTemperatureModel(), modelFactory.getRadiatorModel());
         }
         return temperatureViewModel;
     }
