@@ -32,7 +32,7 @@ public class ViewHandler {
         root = loader.load();
 
         TemperatureViewController viewController = loader.getController();
-        viewController.init(viewModelFactory.getTemperatureViewModel());
+        viewController.init(this);
 
         scene = new Scene(root);
         stage.setScene(scene);

@@ -26,6 +26,8 @@ public class WarningViewController
 
     public void lowValueButton(ActionEvent actionEvent)
     {
+        this.viewHandler = viewHandler;
+        this.warningViewModel = warningViewModel;
 
     }
 

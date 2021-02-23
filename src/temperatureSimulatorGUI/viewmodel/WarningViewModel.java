@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import mediators.TemperatureModel;
 
 // todo: everything
-public class WarningViewModel
+public class WarningViewModel implements ViewModel
 {
     DoubleProperty highWarning;
     DoubleProperty lowWarning;
