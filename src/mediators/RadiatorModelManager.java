@@ -1,4 +1,7 @@
 package mediators;
+
+import java.beans.PropertyChangeListener;
+
 // todo: everything
 public class RadiatorModelManager implements RadiatorModel
 {
@@ -14,6 +17,16 @@ public class RadiatorModelManager implements RadiatorModel
 
     @Override
     public void turnRadiatorDown() {
+
+    }
+
+    @Override
+    public void addListener(String propertyName, PropertyChangeListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(String propertyName, PropertyChangeListener listener) {
 
     }
 }
