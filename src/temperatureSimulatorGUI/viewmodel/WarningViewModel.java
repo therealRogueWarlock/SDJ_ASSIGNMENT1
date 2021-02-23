@@ -16,14 +16,20 @@ public class WarningViewModel
     {
         this.temperatureModel = temperatureModel;
 
-        highWarning =  new SimpleDoubleProperty(40);
-        lowWarning =  new SimpleDoubleProperty(5);
+        highWarning =  new SimpleDoubleProperty(40); //Hm
+        lowWarning =  new SimpleDoubleProperty(5); //Hm
     }
 
     public void spoilerAlert()
     {
-        //if(highWarning.getValue() != null )
-        //TODO: mangler
+        /*
+        if(highWarning.getValue() != null && lowWarning.getValue() != null)
+        {
+            //TODO
+        }
+        
+         */
+
     }
 
     public DoubleProperty highWarningProperty()
