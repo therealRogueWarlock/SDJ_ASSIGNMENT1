@@ -9,10 +9,9 @@ import mediators.TemperatureModel;
 import model.temperature.Temperature;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 // todo: everything
-public class TemperatureViewModel implements ViewModel, PropertyChangeListener {
+public class TemperatureViewModel implements ViewModel{
 
     TemperatureModel model;
 

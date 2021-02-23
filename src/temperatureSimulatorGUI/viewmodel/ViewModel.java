@@ -1,6 +1,7 @@
 package temperatureSimulatorGUI.viewmodel;
 // todo: add to class diagram
 
-public interface ViewModel {
+import java.beans.PropertyChangeListener;
 
+public interface ViewModel extends PropertyChangeListener {
 }
