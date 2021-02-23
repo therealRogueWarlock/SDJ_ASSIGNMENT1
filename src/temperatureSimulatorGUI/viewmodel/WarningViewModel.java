@@ -19,8 +19,8 @@ public class WarningViewModel implements ViewModel, PropertyChangeListener
     {
         this.temperatureModel = temperatureModel;
 
-        highWarning =  new SimpleDoubleProperty(40); //Hm
-        lowWarning =  new SimpleDoubleProperty(5); //Hm
+        highWarning =  new SimpleDoubleProperty();
+        lowWarning =  new SimpleDoubleProperty();
     }
 
     public void spoilerAlert()
