@@ -4,6 +4,8 @@ package mediators;
 import model.temperature.Temperature;
 import model.temperature.TemperatureList;
 
+import java.beans.PropertyChangeListener;
+
 public class TemperatureModelManager implements TemperatureModel
 {
     private TemperatureList temperatureList;
@@ -26,5 +28,15 @@ public class TemperatureModelManager implements TemperatureModel
     @Override
     public Temperature getLastInsertedTemperature(String id) {
         return null;
+    }
+
+    @Override
+    public void addListener(String propertyName, PropertyChangeListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(String propertyName, PropertyChangeListener listener) {
+
     }
 }

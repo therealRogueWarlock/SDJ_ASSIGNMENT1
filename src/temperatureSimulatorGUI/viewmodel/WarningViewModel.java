@@ -4,8 +4,11 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import mediators.TemperatureModel;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 // todo: everything
-public class WarningViewModel implements ViewModel
+public class WarningViewModel implements ViewModel, PropertyChangeListener
 {
     DoubleProperty highWarning;
     DoubleProperty lowWarning;
@@ -41,5 +44,10 @@ public class WarningViewModel implements ViewModel
     public DoubleProperty lowWarningProperty()
     {
         return lowWarning;
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
     }
 }

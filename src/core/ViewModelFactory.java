@@ -40,18 +40,14 @@ public class ViewModelFactory {
         if (warningViewModel == null ){
             warningViewModel = new WarningViewModel(modelFactory.getTemperatureModel());
         }
-
         return warningViewModel;
-
     }
 
 
     public TemperatureViewModel getTemperatureViewModel() {
-
         if (temperatureViewModel == null){
             temperatureViewModel = new TemperatureViewModel(modelFactory.getTemperatureModel());
         }
-
         return temperatureViewModel;
     }
 
