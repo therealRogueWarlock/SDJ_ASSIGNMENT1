@@ -1,23 +1,41 @@
 package temperatureSimulatorGUI.view;
 // todo: stuff
 import core.ViewHandler;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import temperatureSimulatorGUI.viewmodel.WarningViewModel;
 
-public class WarningViewController
+import java.awt.event.ActionEvent;
+
+public class WarningViewController implements Controller
 {
     public TextField highValueTextField;
     public TextField lowValueTextField;
 
-
     private ViewHandler viewHandler;
+    private WarningViewModel warningViewModel;
 
-    public void highValueButton(ActionEvent actionEvent)
+    public void init()
     {
+
     }
 
-    public void lowValueButton(ActionEvent actionEvent)
+    public void turnUpButtonPressed(ActionEvent actionEvent)
     {
+
+        //WarningView.
+    }
+
+
+    public void turnDownButtonPressed(ActionEvent actionEvent)
+    {
+
+    }
+
+
+
+
+    @Override
+    public void init() {
+
     }
 }

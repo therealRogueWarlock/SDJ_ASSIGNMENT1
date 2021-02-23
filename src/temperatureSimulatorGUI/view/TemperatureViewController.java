@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 
-public class TemperatureViewController
+public class TemperatureViewController implements Controller
 {
     public Label outputLabelTemp1;
     public Label outputLabelTemp2;
@@ -38,5 +38,10 @@ public class TemperatureViewController
 
     public void warningButtonPressed(ActionEvent actionEvent)
     {
+    }
+
+    @Override
+    public void init() {
+
     }
 }
