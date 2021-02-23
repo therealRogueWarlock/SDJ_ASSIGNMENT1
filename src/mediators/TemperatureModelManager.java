@@ -1,5 +1,5 @@
 package mediators;
-// todo: everything
+// todo: Mangler lidt
 
 import model.temperature.Temperature;
 import model.temperature.TemperatureList;
@@ -14,17 +14,24 @@ public class TemperatureModelManager implements TemperatureModel
     }
 
     @Override
-    public void addTemperature(String id, double temperature) {
-
+    public void addTemperature(String id, double temperature)
+    {
+        Temperature temp = new Temperature(id, temperature);
+        Temperature old = getLastInsertedTemperature();
+        this.temperatureList.addTemperature(temp);
+        if (old != null && old.getValue() != temp.getValue())
+        {
+            System.out.println("-->" + temp + " (from: " + old + ")");
+        }
     }
 
     @Override
     public Temperature getLastInsertedTemperature() {
-        return null;
+        return temperatureList.getLastTemperature(null);
     }
 
     @Override
     public Temperature getLastInsertedTemperature(String id) {
-        return null;
+        return temperatureList.getLastTemperature(id);
     }
 }
