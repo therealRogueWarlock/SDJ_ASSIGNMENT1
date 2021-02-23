@@ -1,10 +1,9 @@
 package temperatureSimulatorGUI.view;
 // todo: stuff
 import core.ViewHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import temperatureSimulatorGUI.viewmodel.WarningViewModel;
-
-import java.awt.event.ActionEvent;
 
 public class WarningViewController
 {
@@ -14,21 +13,19 @@ public class WarningViewController
     private ViewHandler viewHandler;
     private WarningViewModel warningViewModel;
 
-    public void init()
+    public void init(ViewHandler viewHandler, WarningViewModel warningViewModel)
     {
-
+        this.viewHandler = viewHandler;
+        this.warningViewModel = warningViewModel;
     }
 
-    public void turnUpButtonPressed(ActionEvent actionEvent)
+    public void highValueButton(ActionEvent actionEvent)
     {
-
-        //WarningView.
+       // warningViewModel.
     }
 
-
-    public void turnDownButtonPressed(ActionEvent actionEvent)
+    public void lowValueButton(ActionEvent actionEvent)
     {
-
+       // warningViewModel.
     }
-
 }
