@@ -4,6 +4,7 @@ package core;
 
 import mediators.RadiatorModelManager;
 import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
+import temperatureSimulatorGUI.viewmodel.ViewModel;
 import temperatureSimulatorGUI.viewmodel.WarningViewModel;
 
 public class ViewModelFactory {
@@ -21,9 +22,16 @@ public class ViewModelFactory {
 
     }
 
-    public  getViewModelByName(String viewName){
+    public ViewModel getViewModelByName(String viewName){
 
+        if (viewName.equals("temperature")){
+            return getTemperatureViewModel();
+        }
 
+        if (viewName.equals("warning")){
+            return getWarningViewModel();
+        }
+        return null;
     }
 
 

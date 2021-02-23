@@ -3,6 +3,4 @@ package temperatureSimulatorGUI.viewmodel;
 
 public interface ViewModel {
 
-
-
 }
