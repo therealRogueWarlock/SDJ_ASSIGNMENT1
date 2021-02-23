@@ -1,5 +1,5 @@
 package temperatureSimulatorGUI.view;
-
+// todo: stuff
 import core.ViewHandler;
 import javafx.scene.control.TextField;
 
