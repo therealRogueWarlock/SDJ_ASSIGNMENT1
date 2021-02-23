@@ -35,12 +35,12 @@ public class TemperatureViewController
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
     {
-     //   temperatureViewModel.
+        temperatureViewModel.turnUpRadiator();
     }
 
     public void turnDownButtonPressed(ActionEvent actionEvent)
     {
-      //  temperatureViewModel.
+        temperatureViewModel.turnDownRadiator();
     }
 
     public void warningButtonPressed(ActionEvent actionEvent)

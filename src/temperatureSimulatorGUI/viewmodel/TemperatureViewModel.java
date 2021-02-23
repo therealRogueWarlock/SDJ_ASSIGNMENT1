@@ -58,7 +58,16 @@ public class TemperatureViewModel implements ViewModel{
 
         });
 
+    }
 
+    public void turnUpRadiator()
+    {
+        radiatorModel.turnRadiatorUp();
+    }
+
+    public void turnDownRadiator()
+    {
+        radiatorModel.turnRadiatorDown();
     }
 
     // property Getters
