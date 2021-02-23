@@ -3,7 +3,7 @@ package temperatureSimulatorGUI.view;
 import core.ViewHandler;
 import javafx.scene.control.TextField;
 
-public class WarningViewController
+public class WarningViewController implements Controller
 {
     public TextField highValueTextField;
     public TextField lowValueTextField;
@@ -11,4 +11,10 @@ public class WarningViewController
     private ViewHandler viewHandler;
 
 
+
+
+    @Override
+    public void init() {
+
+    }
 }
