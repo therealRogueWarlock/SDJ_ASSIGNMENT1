@@ -3,7 +3,7 @@ package mediators;
 
 import model.temperature.Temperature;
 
-public class TemperatureModelManager extends TemperatureModel
+public class TemperatureModelManager implements TemperatureModel
 {
     @Override
     public void addTemperature(String id, double temperature) {
