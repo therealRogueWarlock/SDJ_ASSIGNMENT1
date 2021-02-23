@@ -14,11 +14,18 @@ public class TemperatureViewController
 
     private ViewHandler viewHandler;
 
-    public void init(){
 
+    public void init(ViewHandler viewHandler, TemperatureViewModel viewModel)
+    {
+        this.viewHandler = viewHandler;
+        this.viewModel = viewModel;
+/*
+        outputLabelTemp1.textProperty().bind(viewModel.);
+        outputLabelTemp2.textProperty().bind(viewModel.);
+        outputLabelTemp3.textProperty().bind(viewModel.);
+
+ */
     }
-
-
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
     {
