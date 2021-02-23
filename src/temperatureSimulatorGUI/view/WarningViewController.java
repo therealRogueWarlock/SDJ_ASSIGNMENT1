@@ -20,20 +20,12 @@ public class WarningViewController
         this.warningViewModel = (WarningViewModel) warningViewModel;
     }
 
-    public void highValueButton(ActionEvent actionEvent)
-    {
-       //warningViewModel.
-    }
-
-    public void lowValueButton(ActionEvent actionEvent)
-    {
-        //this.viewHandler = viewHandler;
-        //this.warningViewModel = warningViewModel;
-
-    }
-
     public void temperatureViewButtonPressed(ActionEvent actionEvent)
     {
         //Switch to TemperatureView.fmxl
+    }
+
+    public void confirmValuesButton(ActionEvent actionEvent)
+    {
     }
 }
