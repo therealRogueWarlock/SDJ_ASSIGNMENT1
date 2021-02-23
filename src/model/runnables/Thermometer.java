@@ -61,15 +61,6 @@ public class Thermometer implements Runnable
         return t;
     }
 
-    public double externalTemperature(double t0, double min, double max)
-    {
-        double left = t0 - min;
-        double right = max - t0;
-        int sign = Math.random() * (left + right) > left ? 1 : -1;
-        t0 += sign * Math.random();
-        return t0;
-    }
-
 
     @Override public void run()
     {
@@ -77,7 +68,7 @@ public class Thermometer implements Runnable
         while (true)
         {
 
-            temperature = temperature(2, 0, 1,10,4);
+            temperature = temperature(2, 1, distance,5,4);
             model.addTemperature(id, temperature);
 
             try
