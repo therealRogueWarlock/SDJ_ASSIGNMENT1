@@ -5,63 +5,53 @@ import mediators.TemperatureModel;
 public class Thermometer implements Runnable
 {
 
-    private double temperature;
+    private double internalTemperature;
+    private double externalTemperature;
+
     private int distance;
     private String id;
-    private TemperatureModel model;
-    private int secondLastMeasure;
 
-    public Thermometer(TemperatureModel model, double temperature, int distance, String id)
+    private TemperatureModel model;
+
+    private int measureInterval;
+
+    public Thermometer(TemperatureModel model,
+                       double internalTemperature, double externalTemperature, int distance, String id)
     {
-        this.temperature = temperature;
+        this.internalTemperature = internalTemperature;
+        this.externalTemperature = externalTemperature;
+
         this.distance = distance;
         this.id = id;
         this.model = model;
-        secondLastMeasure = 1;
+        measureInterval = 1;
     }
 
-    public void setMeasureInterval(int secondLastMeasure)
-    {
-        this.secondLastMeasure = secondLastMeasure;
+    public void setMeasureInterval(int secondLastMeasure) {
+        this.measureInterval = secondLastMeasure;
     }
-/*
+
     private double temperature(int power, double outdoorTemperature){
 
         double tMax = Math.min(11 * power + 10, 11 * power + 10 + outdoorTemperature);
 
-        tMax = Math.max(Math.max(temperature, tMax), outdoorTemperature);
+        tMax = Math.max(Math.max(internalTemperature, tMax), outdoorTemperature);
         double heaterTerm = 0;
 
         if (power > 0){
             double den = Math.max((tMax * (20 - 5 * power) * (distance + 5)), 0.1);
-            heaterTerm = 30 * secondLastMeasure * Math.abs(tMax - temperature) / den;
+            heaterTerm = 30 * internalTemperature * Math.abs(tMax - internalTemperature) / den;
         }
 
-        double outdoorTerm = (temperature - outdoorTemperature) * secondLastMeasure / 250.0;
+        double outdoorTerm = (internalTemperature - outdoorTemperature) * internalTemperature / 250.0;
 
-        temperature = Math.min(Math.max(temperature - outdoorTerm + heaterTerm, outdoorTemperature), tMax);
+        internalTemperature = Math.min(Math.max(internalTemperature - outdoorTerm + heaterTerm, outdoorTemperature), tMax);
 
-        return temperature;
+        return internalTemperature;
     }
 
- */
 
-    public double temperature(double t, int p, int d, double t0, int s)
-    {
-        double tMax = Math.min(11 * p + 10, 11 * p + 10 + t0);
-        tMax = Math.max(Math.max(t, tMax), t0);
-        double heaterTerm = 0;
-        if (p > 0)
-        {
-            double den = Math.max((tMax * (20 - 5 * p) * (d + 5)), 0.1);
-            heaterTerm = 30 * s * Math.abs(tMax - t) / den;
-        }
-        double outdoorTerm = (t - t0) * s / 250.0;
-        t = Math.min(Math.max(t - outdoorTerm + heaterTerm, t0), tMax);
-        return t;
-    }
-
-    public double externalTemperature(double t0, double min, double max)
+    private double externalTemperature(double t0, double min, double max)
     {
         double left = t0 - min;
         double right = max - t0;
@@ -77,12 +67,15 @@ public class Thermometer implements Runnable
         while (true)
         {
 
-            temperature = temperature(2, 0, 1,10,4);
-            model.addTemperature(id, temperature);
+            internalTemperature = temperature(2,
+                    externalTemperature(externalTemperature,-10,28));
+
+            System.out.println(id + " Adds new temp to model");
+            model.addTemperature(id, internalTemperature);
 
             try
             {
-                Thread.sleep(secondLastMeasure * 1000L);
+                Thread.sleep(measureInterval * 1000L);
             }
             catch (InterruptedException e)
             {

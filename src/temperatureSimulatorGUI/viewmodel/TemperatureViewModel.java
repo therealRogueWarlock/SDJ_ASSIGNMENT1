@@ -30,8 +30,6 @@ public class TemperatureViewModel implements ViewModel{
         this.temperatureModel = temperatureModel;
         this.radiatorModel = radiatorModel;
 
-        temperature = new SimpleDoubleProperty();
-
         labelTemp1 = new SimpleStringProperty();
         labelTemp2 = new SimpleStringProperty();
         labelTemp3 = new SimpleStringProperty();
@@ -84,8 +82,6 @@ public class TemperatureViewModel implements ViewModel{
     public StringProperty radiatorPowerProperty() {
         return radiatorPower;
     }
-
-
 
 
     @Override

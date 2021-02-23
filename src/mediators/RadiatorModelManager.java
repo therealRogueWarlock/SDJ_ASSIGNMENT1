@@ -5,8 +5,7 @@ import model.radiator.Radiator;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class RadiatorModelManager implements RadiatorModel
-{
+public class RadiatorModelManager implements RadiatorModel {
 
     private PropertyChangeSupport listenerSupport = new PropertyChangeSupport(this);
     private Radiator radiator;
@@ -23,11 +22,13 @@ public class RadiatorModelManager implements RadiatorModel
     @Override
     public void turnRadiatorUp() {
         radiator.turnUp();
+        listenerSupport.firePropertyChange("PowerChange", null, getCurrentPower());
     }
 
     @Override
     public void turnRadiatorDown() {
         radiator.turnDown();
+        listenerSupport.firePropertyChange("PowerChange", null, getCurrentPower());
     }
 
     @Override
@@ -39,4 +40,6 @@ public class RadiatorModelManager implements RadiatorModel
     public void removeListener(String propertyName, PropertyChangeListener listener) {
         listenerSupport.removePropertyChangeListener(propertyName,listener);
     }
+
+
 }

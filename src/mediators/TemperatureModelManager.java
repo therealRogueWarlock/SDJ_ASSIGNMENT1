@@ -5,9 +5,12 @@ import model.temperature.Temperature;
 import model.temperature.TemperatureList;
 
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 
 public class TemperatureModelManager implements TemperatureModel
 {
+
+    private PropertyChangeSupport listenerSupport = new PropertyChangeSupport(this);
     private TemperatureList temperatureList;
 
     public TemperatureModelManager()
@@ -16,15 +19,20 @@ public class TemperatureModelManager implements TemperatureModel
     }
 
     @Override
-    public void addTemperature(String id, double temperature)
+    public void addTemperature(String id, double tempValue)
     {
-        Temperature temp = new Temperature(id, temperature);
-        Temperature old = getLastInsertedTemperature();
-        this.temperatureList.addTemperature(temp);
-        if (old != null && old.getValue() != temp.getValue())
-        {
-            System.out.println("-->" + temp + " (from: " + old + ")");
+        Temperature temperature = new Temperature(id, tempValue);
+
+        Temperature old = getLastInsertedTemperature(id);
+
+        this.temperatureList.addTemperature(temperature);
+        System.out.println("Old: " + old);
+        System.out.println("new: " + temperature);
+        if (old != null && old.getValue() != temperature.getValue()) {
+
+            listenerSupport.firePropertyChange("tempChange",old,temperature);
         }
+
     }
 
     @Override
@@ -39,11 +47,12 @@ public class TemperatureModelManager implements TemperatureModel
 
     @Override
     public void addListener(String propertyName, PropertyChangeListener listener) {
-
+        listenerSupport.addPropertyChangeListener(propertyName,listener);
     }
 
     @Override
     public void removeListener(String propertyName, PropertyChangeListener listener) {
-
+        listenerSupport.removePropertyChangeListener(propertyName,listener);
     }
+
 }

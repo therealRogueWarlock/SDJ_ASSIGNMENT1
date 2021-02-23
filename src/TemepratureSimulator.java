@@ -15,9 +15,14 @@ public class TemepratureSimulator extends Application {
 
         // creating Thermometer threads
         TemperatureModel temperatureModel = modelFactory.getTemperatureModel();
-        Thermometer thermometer1 = new Thermometer(temperatureModel, 20,2,"T1");
-        Thermometer thermometer2 = new Thermometer(temperatureModel,20,2,"T2");
-        Thermometer thermometer3 = new Thermometer(temperatureModel, 20,2,"T3");
+
+        int startRoomTemp = 20;
+        int startOutsideTemp = 10;
+
+
+        Thermometer thermometer1 = new Thermometer(temperatureModel, startRoomTemp,startOutsideTemp,2,"T1");
+        Thermometer thermometer2 = new Thermometer(temperatureModel,startRoomTemp,startOutsideTemp,2,"T2");
+        Thermometer thermometer3 = new Thermometer(temperatureModel, startOutsideTemp,startOutsideTemp,2,"T3");
 
 
         Thread thermo1Thread = new Thread(thermometer1);
