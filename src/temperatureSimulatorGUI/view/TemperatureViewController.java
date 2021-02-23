@@ -3,6 +3,7 @@ package temperatureSimulatorGUI.view;
 import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 
 public class TemperatureViewController
 {
@@ -13,32 +14,32 @@ public class TemperatureViewController
     public Label warningLabel;
 
     private ViewHandler viewHandler;
-
+    private TemperatureViewModel temperatureViewModel;
 
     public void init(ViewHandler viewHandler, TemperatureViewModel viewModel)
     {
         this.viewHandler = viewHandler;
-        this.viewModel = viewModel;
+        this.temperatureViewModel = temperatureViewModel;
 /*
-        outputLabelTemp1.textProperty().bind(viewModel.);
-        outputLabelTemp2.textProperty().bind(viewModel.);
-        outputLabelTemp3.textProperty().bind(viewModel.);
+        outputLabelTemp1.textProperty().bind(temperatureViewModel.);
+        outputLabelTemp2.textProperty().bind(temperatureViewModel.);
+        outputLabelTemp3.textProperty().bind(temperatureViewModel.);
 
  */
     }
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
     {
+     //   temperatureViewModel.
     }
 
     public void turnDownButtonPressed(ActionEvent actionEvent)
     {
+      //  temperatureViewModel.
     }
 
     public void warningButtonPressed(ActionEvent actionEvent)
     {
     }
-
-
 
 }
