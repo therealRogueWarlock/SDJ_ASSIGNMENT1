@@ -22,6 +22,7 @@ public class WarningViewModel implements ViewModel
 
     public void spoilerAlert()
     {
+        //temperatureModel.getLastInsertedTemperature().GETINT ;((
         /*
         if(highWarning.getValue() != null && lowWarning.getValue() != null)
         {
