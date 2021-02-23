@@ -6,7 +6,7 @@ import temperatureSimulatorGUI.viewmodel.WarningViewModel;
 
 import java.awt.event.ActionEvent;
 
-public class WarningViewController implements Controller
+public class WarningViewController
 {
     public TextField highValueTextField;
     public TextField lowValueTextField;
@@ -33,9 +33,4 @@ public class WarningViewController implements Controller
 
 
 
-
-    @Override
-    public void init() {
-
-    }
 }

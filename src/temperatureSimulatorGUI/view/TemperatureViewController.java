@@ -4,7 +4,7 @@ import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
-public class TemperatureViewController implements Controller
+public class TemperatureViewController
 {
     public Label outputLabelTemp1;
     public Label outputLabelTemp2;
@@ -13,6 +13,11 @@ public class TemperatureViewController implements Controller
     public Label warningLabel;
 
     private ViewHandler viewHandler;
+
+    public void init(){
+
+    }
+
 
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
@@ -27,8 +32,6 @@ public class TemperatureViewController implements Controller
     {
     }
 
-    @Override
-    public void init() {
 
-    }
+
 }
