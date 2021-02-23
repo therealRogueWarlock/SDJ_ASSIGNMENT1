@@ -15,7 +15,7 @@ public class RadiatorModelManager implements RadiatorModel
     }
 
     @Override
-    public int getCurrentState() {
+    public int getCurrentPower() {
         return radiator.getPower();
     }
 

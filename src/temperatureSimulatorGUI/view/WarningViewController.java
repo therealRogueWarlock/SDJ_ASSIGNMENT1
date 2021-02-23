@@ -22,13 +22,13 @@ public class WarningViewController
 
     public void highValueButton(ActionEvent actionEvent)
     {
-       warningViewModel.
+       //warningViewModel.
     }
 
     public void lowValueButton(ActionEvent actionEvent)
     {
-        this.viewHandler = viewHandler;
-        this.warningViewModel = warningViewModel;
+        //this.viewHandler = viewHandler;
+        //this.warningViewModel = warningViewModel;
 
     }
 

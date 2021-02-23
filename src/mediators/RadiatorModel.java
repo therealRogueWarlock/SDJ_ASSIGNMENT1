@@ -5,7 +5,7 @@ import util.Subject;
 // todo: everything
 public interface RadiatorModel extends Subject
 {
-    int getCurrentState();
+    int getCurrentPower();
     void turnRadiatorUp();
     void turnRadiatorDown();
 }
