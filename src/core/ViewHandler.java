@@ -28,7 +28,7 @@ public class ViewHandler {
 
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("../view/"+viewToOpen.toLowerCase()+"/" + viewToOpen + "View.fxml"));
+        loader.setLocation(getClass().getResource("../temperatureSimulatorGUI/view/" + viewToOpen + "View.fxml"));
         root = loader.load();
 
         TemperatureViewController viewController = loader.getController();
