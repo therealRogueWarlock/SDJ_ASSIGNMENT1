@@ -1,10 +1,7 @@
 package temperatureSimulatorGUI.viewmodel;
 
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import mediators.RadiatorModel;
 import mediators.TemperatureModel;
 import model.temperature.Temperature;
@@ -19,11 +16,13 @@ public class TemperatureViewModel implements ViewModel{
 
     private DoubleProperty temperature;
 
-    private StringProperty output;
-    private StringProperty id;
-    private StringProperty filterLabel;
+    private StringProperty labelTemp1;
+    private StringProperty labelTemp2;
+    private StringProperty labelTemp3;
 
-    private String filteredId;
+    private StringProperty radiatorPower;
+
+
 
 
     public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
@@ -31,12 +30,15 @@ public class TemperatureViewModel implements ViewModel{
         this.temperatureModel = temperatureModel;
         this.radiatorModel = radiatorModel;
 
-        output = new SimpleStringProperty();
         temperature = new SimpleDoubleProperty();
-        id = new SimpleStringProperty();
 
-        filterLabel = new SimpleStringProperty();
-        filterLabel.setValue("All");
+        labelTemp1 = new SimpleStringProperty();
+        labelTemp2 = new SimpleStringProperty();
+        labelTemp3 = new SimpleStringProperty();
+
+        radiatorPower = new SimpleStringProperty();
+
+
 
         temperatureModel.addListener("tempChange", this);
         radiatorModel.addListener("PowerChange", this);
@@ -46,44 +48,45 @@ public class TemperatureViewModel implements ViewModel{
     public void getLastTemp(){
         Platform.runLater(() ->{
 
-            // last measured temp from selected id.
-            System.out.println(filteredId);
-            Temperature lastMeasuredTemperature = temperatureModel.getLastInsertedTemperature(filteredId);
+            Temperature lastInsertedTemperature = temperatureModel.getLastInsertedTemperature();
 
-            if (lastMeasuredTemperature != null) {
-                output.setValue(lastMeasuredTemperature.toString());
-
-                temperature.setValue(lastMeasuredTemperature.getValue());
-            }else{
-                output.setValue("Unknowen thermometer id");
+            switch (lastInsertedTemperature.getId()) {
+                case "T1" -> labelTemp1.setValue(temperature.toString());
+                case "T2" -> labelTemp2.setValue(temperature.toString());
+                case "T3" -> labelTemp3.setValue(temperature.toString());
             }
+
         });
 
 
     }
 
-    public void filterId(){
-        filteredId = id.getValue();
-        filterLabel.setValue(filteredId);
-    }
+    // property Getters
 
     public DoubleProperty temperatureProperty() {
         return temperature;
     }
 
 
-    public StringProperty filterLabelProperty() {
-        return filterLabel;
+    public StringProperty labelTemp1Property() {
+        return labelTemp1;
     }
 
-    public StringProperty idProperty() {
-        return id;
+    public StringProperty labelTemp2Property() {
+        return labelTemp2;
     }
 
 
-    public StringProperty outputProperty() {
-        return output;
+    public StringProperty labelTemp3Property() {
+        return labelTemp3;
     }
+
+    public StringProperty radiatorPowerProperty() {
+        return radiatorPower;
+    }
+
+
+
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

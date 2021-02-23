@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperatureSimulatorGUI.view.TemperatureViewController">
    <children>
       <Label layoutX="45.0" layoutY="59.0" text="Summer House Heating">
@@ -23,9 +22,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="outputLabelTemp1" layoutX="73.0" layoutY="155.0" text="t1" />
-      <Label fx:id="outputLabelTemp2" layoutX="73.0" layoutY="200.0" text="t2" />
-      <Label fx:id="outputLabelTemp3" layoutX="73.0" layoutY="252.0" text="t3" />
+      <Label fx:id="outputLabelTemp1" layoutX="146.0" layoutY="157.0" text="t1Output" />
+      <Label fx:id="outputLabelTemp2" layoutX="146.0" layoutY="192.0" text="t2Output" />
+      <Label fx:id="outputLabelTemp3" layoutX="146.0" layoutY="231.0" text="t3Output" />
       <Label layoutX="376.0" layoutY="157.0" text="Curent Value: " />
       <Button fx:id="turnUpButton" layoutX="373.0" layoutY="188.0" mnemonicParsing="false" onAction="#turnUpButtonPressed" text="Turn Up" />
       <Button fx:id="turnDownButton" layoutX="373.0" layoutY="227.0" mnemonicParsing="false" onAction="#turnDownButtonPressed" text="Turn Down" />

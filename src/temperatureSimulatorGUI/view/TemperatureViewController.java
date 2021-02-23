@@ -10,11 +10,13 @@ import javax.swing.text.View;
 
 public class TemperatureViewController
 {
+    public Label radiatorValue;
+    public Label warningLabel;
+
     public Label outputLabelTemp1;
     public Label outputLabelTemp2;
     public Label outputLabelTemp3;
-    public Label radiatorValue;
-    public Label warningLabel;
+
 
     private ViewHandler viewHandler;
     private TemperatureViewModel temperatureViewModel;
@@ -23,14 +25,12 @@ public class TemperatureViewController
     {
         this.viewHandler = viewHandler;
         this.temperatureViewModel = (TemperatureViewModel) viewModel;
-/*
-        outputLabelTemp1.textProperty().bind(temperatureViewModel.);
-        outputLabelTemp2.textProperty().bind(temperatureViewModel.);
-        outputLabelTemp3.textProperty().bind(temperatureViewModel.);
 
-        radiatorValue.textProperty().bind(temperatureViewModel.);
+        outputLabelTemp1.textProperty().bind(temperatureViewModel.labelTemp1Property());
+        outputLabelTemp2.textProperty().bind(temperatureViewModel.labelTemp2Property());
+        outputLabelTemp3.textProperty().bind(temperatureViewModel.labelTemp3Property());
 
- */
+        radiatorValue.textProperty().bind(temperatureViewModel.radiatorPowerProperty());
     }
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
