@@ -1,10 +1,8 @@
 package temperatureSimulatorGUI.view;
-
+// todo: stuff
 import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-import mediator.RadiatorModel;
-import mediator.TemperatureModel;
 
 public class TemperatureViewController
 {
