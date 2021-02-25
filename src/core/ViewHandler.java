@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import temperatureSimulatorGUI.view.TemperatureViewController;
+import temperatureSimulatorGUI.view.ViewController;
 
 import java.io.IOException;
 
@@ -31,7 +32,7 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource("../temperatureSimulatorGUI/view/" + viewToOpen + "View.fxml"));
         root = loader.load();
 
-        TemperatureViewController viewController = loader.getController();
+        ViewController viewController = loader.getController();
         viewController.init(this, viewModelFactory.getViewModelByName(viewToOpen));
 
         scene = new Scene(root);

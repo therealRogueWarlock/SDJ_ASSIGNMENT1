@@ -6,7 +6,9 @@ import javafx.scene.control.TextField;
 import temperatureSimulatorGUI.viewmodel.ViewModel;
 import temperatureSimulatorGUI.viewmodel.WarningViewModel;
 
-public class WarningViewController
+import java.io.IOException;
+
+public class WarningViewController implements ViewController
 {
     public TextField highValueTextField;
     public TextField lowValueTextField;
@@ -14,15 +16,15 @@ public class WarningViewController
     private ViewHandler viewHandler;
     private WarningViewModel warningViewModel;
 
+    @Override
     public void init(ViewHandler viewHandler, ViewModel warningViewModel)
     {
         this.viewHandler = viewHandler;
         this.warningViewModel = (WarningViewModel) warningViewModel;
     }
 
-    public void temperatureViewButtonPressed(ActionEvent actionEvent)
-    {
-        //Switch to TemperatureView.fmxl
+    public void temperatureViewButtonPressed(ActionEvent actionEvent) throws IOException {
+        viewHandler.openView("temperature");
     }
 
     public void confirmValuesButton(ActionEvent actionEvent)

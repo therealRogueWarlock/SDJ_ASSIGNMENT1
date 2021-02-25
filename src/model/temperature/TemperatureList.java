@@ -25,8 +25,7 @@ public class TemperatureList
         return null;
     }
 
-    public Temperature getLastTemperature(String id)
-    {
+    public Temperature getLastTemperature(String id) {
         if (list.size() < 1)
         {
             return null;

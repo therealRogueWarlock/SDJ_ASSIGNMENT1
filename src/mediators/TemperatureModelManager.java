@@ -26,14 +26,10 @@ public class TemperatureModelManager implements TemperatureModel
         Temperature old = getLastInsertedTemperature(id);
 
         this.temperatureList.addTemperature(temperature);
-        System.out.println("Old: " + old);
-        System.out.println("new: " + temperature);
-        if (old != null && old.getValue() != temperature.getValue()) {
 
-            listenerSupport.firePropertyChange("tempChange",old,temperature);
-        }
-
+        listenerSupport.firePropertyChange("tempChange",old,temperature);
     }
+
 
     @Override
     public Temperature getLastInsertedTemperature() {

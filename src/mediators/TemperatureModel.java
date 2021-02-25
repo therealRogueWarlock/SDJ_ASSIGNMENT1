@@ -11,4 +11,5 @@ public interface TemperatureModel extends Subject {
 
     Temperature getLastInsertedTemperature(String id);
 
+
 }

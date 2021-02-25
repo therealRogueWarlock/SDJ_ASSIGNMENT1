@@ -23,5 +23,4 @@ public class Radiator
     {
         this.currentState = state;
     }
-
 }

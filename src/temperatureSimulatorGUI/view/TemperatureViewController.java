@@ -7,8 +7,9 @@ import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 import temperatureSimulatorGUI.viewmodel.ViewModel;
 
 import javax.swing.text.View;
+import java.io.IOException;
 
-public class TemperatureViewController
+public class TemperatureViewController implements ViewController
 {
     public Label radiatorValue;
     public Label warningLabel;
@@ -21,6 +22,7 @@ public class TemperatureViewController
     private ViewHandler viewHandler;
     private TemperatureViewModel temperatureViewModel;
 
+    @Override
     public void init(ViewHandler viewHandler, ViewModel viewModel)
     {
         this.viewHandler = viewHandler;
@@ -43,9 +45,16 @@ public class TemperatureViewController
         temperatureViewModel.turnDownRadiator();
     }
 
-    public void warningButtonPressed(ActionEvent actionEvent)
-    {
-        //Switch view to WarningView.fxml
+    public void warningButtonPressed(ActionEvent actionEvent) throws IOException {
+        viewHandler.openView("Warning");
     }
+
+
+    public void lineChartViewButtonPressed(ActionEvent actionEvent) throws IOException {
+        viewHandler.openView("tempLineChart");
+
+    }
+
+
 
 }

@@ -14,8 +14,6 @@ public class TemperatureViewModel implements ViewModel{
     private TemperatureModel temperatureModel;
     private RadiatorModel radiatorModel;
 
-    private DoubleProperty temperature;
-
     private StringProperty labelTemp1;
     private StringProperty labelTemp2;
     private StringProperty labelTemp3;
@@ -30,12 +28,14 @@ public class TemperatureViewModel implements ViewModel{
         this.temperatureModel = temperatureModel;
         this.radiatorModel = radiatorModel;
 
-        labelTemp1 = new SimpleStringProperty();
-        labelTemp2 = new SimpleStringProperty();
-        labelTemp3 = new SimpleStringProperty();
+        labelTemp1 = new SimpleStringProperty("T1: No value");
+        labelTemp2 = new SimpleStringProperty("T2: No value");
+        labelTemp3 = new SimpleStringProperty("T3: No value");
+
 
         radiatorPower = new SimpleStringProperty();
 
+        radiatorPower.setValue(String.valueOf(radiatorModel.getCurrentPower()));
 
 
         temperatureModel.addListener("tempChange", this);
@@ -44,36 +44,38 @@ public class TemperatureViewModel implements ViewModel{
     }
 
     public void getLastTemp(){
+
         Platform.runLater(() ->{
 
             Temperature lastInsertedTemperature = temperatureModel.getLastInsertedTemperature();
 
             switch (lastInsertedTemperature.getId()) {
-                case "T1" -> labelTemp1.setValue(temperature.toString());
-                case "T2" -> labelTemp2.setValue(temperature.toString());
-                case "T3" -> labelTemp3.setValue(temperature.toString());
+                case "T1" -> labelTemp1.setValue(lastInsertedTemperature.toString() + " distance 1, inside");
+                case "T2" -> labelTemp2.setValue(lastInsertedTemperature.toString() + " distance 7, inside");
+                case "T3" -> labelTemp3.setValue(lastInsertedTemperature.toString() + " outside");
             }
-
+            checkRadiatorPower();
         });
-
     }
+
+    private void checkRadiatorPower(){
+        radiatorPower.setValue(String.valueOf(radiatorModel.getCurrentPower()));
+    }
+
 
     public void turnUpRadiator()
     {
         radiatorModel.turnRadiatorUp();
+        checkRadiatorPower();
     }
 
     public void turnDownRadiator()
     {
         radiatorModel.turnRadiatorDown();
+        checkRadiatorPower();
     }
 
     // property Getters
-
-    public DoubleProperty temperatureProperty() {
-        return temperature;
-    }
-
 
     public StringProperty labelTemp1Property() {
         return labelTemp1;
@@ -95,7 +97,6 @@ public class TemperatureViewModel implements ViewModel{
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println("viewmodel got property change from model");
         getLastTemp();
     }
 }

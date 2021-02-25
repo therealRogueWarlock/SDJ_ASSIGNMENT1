@@ -10,8 +10,9 @@ public class RadiatorModelManager implements RadiatorModel {
     private PropertyChangeSupport listenerSupport = new PropertyChangeSupport(this);
     private Radiator radiator;
 
-    public RadiatorModelManager() {
-        this.radiator = new Radiator();
+
+    public void setRadiator(Radiator radiator) {
+        this.radiator = radiator;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class RadiatorModelManager implements RadiatorModel {
         radiator.turnDown();
         listenerSupport.firePropertyChange("PowerChange", null, getCurrentPower());
     }
+
 
     @Override
     public void addListener(String propertyName, PropertyChangeListener listener) {

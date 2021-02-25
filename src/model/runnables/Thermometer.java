@@ -1,6 +1,7 @@
 package model.runnables;
 // todo: everything
 import mediators.TemperatureModel;
+import model.radiator.Radiator;
 
 public class Thermometer implements Runnable
 {
@@ -8,14 +9,15 @@ public class Thermometer implements Runnable
     private double internalTemperature;
     private double externalTemperature;
 
-    private int distance;
+    private Integer distance;
     private String id;
 
     private TemperatureModel model;
+    private Radiator radiator;
 
-    private int measureInterval;
+    private final int measureInterval = 4;
 
-    public Thermometer(TemperatureModel model,
+    public Thermometer(TemperatureModel model,Radiator radiator,
                        double internalTemperature, double externalTemperature, int distance, String id)
     {
         this.internalTemperature = internalTemperature;
@@ -23,15 +25,31 @@ public class Thermometer implements Runnable
 
         this.distance = distance;
         this.id = id;
+
         this.model = model;
-        measureInterval = 1;
+        this.radiator = radiator;
+
+
     }
 
-    public void setMeasureInterval(int secondLastMeasure) {
-        this.measureInterval = secondLastMeasure;
+    public Thermometer(TemperatureModel model, Radiator radiator,
+                       double internalTemperature, double externalTemperature, String id)
+    {
+        this.internalTemperature = internalTemperature;
+        this.externalTemperature = externalTemperature;
+        this.id = id;
+
+        this.model = model;
+        this.radiator = radiator;
+
     }
+
 
     private double temperature(int power, double outdoorTemperature){
+
+        if (distance == null){
+            return outdoorTemperature;
+        }
 
         double tMax = Math.min(11 * power + 10, 11 * power + 10 + outdoorTemperature);
 
@@ -43,7 +61,7 @@ public class Thermometer implements Runnable
             heaterTerm = 30 * internalTemperature * Math.abs(tMax - internalTemperature) / den;
         }
 
-        double outdoorTerm = (internalTemperature - outdoorTemperature) * internalTemperature / 250.0;
+        double outdoorTerm = (internalTemperature - outdoorTemperature) * measureInterval / 250.0;
 
         internalTemperature = Math.min(Math.max(internalTemperature - outdoorTerm + heaterTerm, outdoorTemperature), tMax);
 
@@ -51,13 +69,12 @@ public class Thermometer implements Runnable
     }
 
 
-    private double externalTemperature(double t0, double min, double max)
-    {
-        double left = t0 - min;
-        double right = max - t0;
+    private double externalTemperature(double min, double max) {
+        double left = externalTemperature - min;
+        double right = max - externalTemperature;
         int sign = Math.random() * (left + right) > left ? 1 : -1;
-        t0 += sign * Math.random();
-        return t0;
+        externalTemperature += sign * Math.random();
+        return externalTemperature;
     }
 
 
@@ -67,10 +84,9 @@ public class Thermometer implements Runnable
         while (true)
         {
 
-            internalTemperature = temperature(2,
-                    externalTemperature(externalTemperature,-10,28));
+            internalTemperature = temperature(radiator.getPower(),
+                    externalTemperature(-10,28));
 
-            System.out.println(id + " Adds new temp to model");
             model.addTemperature(id, internalTemperature);
 
             try

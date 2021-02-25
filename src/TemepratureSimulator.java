@@ -4,6 +4,7 @@ import core.ViewModelFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import mediators.TemperatureModel;
+import model.radiator.Radiator;
 import model.runnables.Thermometer;
 
 public class TemepratureSimulator extends Application {
@@ -16,13 +17,17 @@ public class TemepratureSimulator extends Application {
         // creating Thermometer threads
         TemperatureModel temperatureModel = modelFactory.getTemperatureModel();
 
+        // creating new radiator
+        Radiator radiator = new Radiator();
+        // giving radiator to radiator model.
+        modelFactory.getRadiatorModel().setRadiator(radiator);
+
         int startRoomTemp = 20;
         int startOutsideTemp = 10;
 
-
-        Thermometer thermometer1 = new Thermometer(temperatureModel, startRoomTemp,startOutsideTemp,2,"T1");
-        Thermometer thermometer2 = new Thermometer(temperatureModel,startRoomTemp,startOutsideTemp,2,"T2");
-        Thermometer thermometer3 = new Thermometer(temperatureModel, startOutsideTemp,startOutsideTemp,2,"T3");
+        Thermometer thermometer1 = new Thermometer(temperatureModel, radiator, startRoomTemp,startOutsideTemp,1,"T1");
+        Thermometer thermometer2 = new Thermometer(temperatureModel,radiator,startRoomTemp,startOutsideTemp,7,"T2");
+        Thermometer thermometer3 = new Thermometer(temperatureModel,radiator, startOutsideTemp,startOutsideTemp,"T3");
 
 
         Thread thermo1Thread = new Thread(thermometer1);
