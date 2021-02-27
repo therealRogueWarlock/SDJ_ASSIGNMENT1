@@ -20,12 +20,9 @@ public class TempLineChartViewModel implements ViewModel{
 
 
 
-    public TempLineChartViewModel(TemperatureModel temperatureModel) {
+    public TempLineChartViewModel(TemperatureModel model) {
 
-        this.temperatureModel = (TemperatureModelManager) temperatureModel;
-
-
-
+        this.temperatureModel = (TemperatureModelManager) model;
 
 
     }
