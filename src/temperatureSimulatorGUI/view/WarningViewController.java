@@ -29,6 +29,7 @@ public class WarningViewController implements ViewController
 
         DoubleProperty maxValueWarningModel = this.warningViewModel.maxWarningProperty();
         DoubleProperty minValueWarningModel = this.warningViewModel.minWarningProperty();
+
         StringConverter<Number> converter = new NumberStringConverter();
         Bindings.bindBidirectional(maxValueTextField.textProperty(),maxValueWarningModel,converter);
         Bindings.bindBidirectional(minValueTextField.textProperty(),minValueWarningModel,converter);

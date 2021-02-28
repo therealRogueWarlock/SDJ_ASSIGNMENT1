@@ -16,7 +16,7 @@ public class Power3State implements RadiatorState
 
             catch (InterruptedException e)
             {
-                e.printStackTrace();
+                //pass
             }
         });
         sleepThread.setDaemon(true);

@@ -30,7 +30,7 @@
       <Button fx:id="turnDownButton" layoutX="373.0" layoutY="227.0" mnemonicParsing="false" onAction="#turnDownButtonPressed" text="Turn Down" />
       <Button fx:id="warningButton" layoutX="58.0" layoutY="310.0" mnemonicParsing="false" onAction="#warningButtonPressed" text="Warning Values" />
       <Label fx:id="radiatorValue" layoutX="465.0" layoutY="157.0" text="value" />
-      <Label fx:id="warningLabel" layoutX="213.0" layoutY="314.0" />
+      <Label fx:id="warningLabel" layoutX="58.0" layoutY="283.0" prefHeight="17.0" prefWidth="543.0" text="More data needed" />
       <Button fx:id="LineChartViewButtonId" layoutX="388.0" layoutY="310.0" mnemonicParsing="false" onAction="#lineChartViewButtonPressed" text="Temperature overview" />
    </children>
 </AnchorPane>

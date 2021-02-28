@@ -33,6 +33,7 @@ public class TemperatureViewController implements ViewController
         outputLabelTemp3.textProperty().bind(temperatureViewModel.labelTemp3Property());
 
         radiatorValue.textProperty().bind(temperatureViewModel.radiatorPowerProperty());
+        warningLabel.textProperty().bind(temperatureViewModel.warningInfoProperty());
     }
 
     public void turnUpButtonPressed(ActionEvent actionEvent)
@@ -49,12 +50,9 @@ public class TemperatureViewController implements ViewController
         viewHandler.openView("warning");
     }
 
-
     public void lineChartViewButtonPressed(ActionEvent actionEvent) throws IOException {
         viewHandler.openView("tempLineChart");
 
     }
-
-
 
 }

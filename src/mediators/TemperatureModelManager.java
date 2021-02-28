@@ -45,6 +45,7 @@ public class TemperatureModelManager implements TemperatureModel
         return temperatureList.getLastTemperature(id);
     }
 
+
     public void setAlarmMaxValue(double value){
         temperatureAlarm.setMaxValue(value);
     }

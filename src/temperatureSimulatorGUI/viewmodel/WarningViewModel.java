@@ -33,18 +33,6 @@ public class WarningViewModel implements ViewModel
         temperatureModelManager.setAlarmMinValue(minWarning.getValue());
     }
 
-    public void spoilerAlert()
-    {
-        //temperatureModel.getLastInsertedTemperature().GETINT ;((
-        /*
-        if(highWarning.getValue() != null && lowWarning.getValue() != null)
-        {
-            //TODO
-        }
-
-         */
-
-    }
 
     public DoubleProperty maxWarningProperty()
     {
