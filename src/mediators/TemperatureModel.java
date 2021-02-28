@@ -1,7 +1,6 @@
 package mediators;
 
 import model.temperature.Temperature;
-import model.temperature.TemperatureAlarm;
 import util.Subject;
 
 public interface TemperatureModel extends Subject {
@@ -11,6 +10,5 @@ public interface TemperatureModel extends Subject {
     Temperature getLastInsertedTemperature();
 
     Temperature getLastInsertedTemperature(String id);
-
 
 }

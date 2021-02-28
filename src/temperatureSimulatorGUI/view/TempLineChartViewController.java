@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import temperatureSimulatorGUI.viewmodel.TempLineChartViewModel;
-import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 import temperatureSimulatorGUI.viewmodel.ViewModel;
 
 import java.io.IOException;
@@ -28,6 +27,10 @@ public class TempLineChartViewController implements ViewController {
 
         tempLineChartId.getYAxis().setLabel("Temperature");
         tempLineChartId.getXAxis().setLabel("Time");
+
+        tempLineChartId.getData().add(tempLineChartViewModel.getIndoor1DataSeries());
+        tempLineChartId.getData().add(tempLineChartViewModel.getIndoor2DataSeries());
+        tempLineChartId.getData().add(tempLineChartViewModel.getOutdoor1DataSeries());
 
     }
 

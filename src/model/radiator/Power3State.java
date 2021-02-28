@@ -10,7 +10,7 @@ public class Power3State implements RadiatorState
         sleepThread = new Thread(()->{
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(40000);
                 radiator.setPowerState(new Power2State());
             }
 

@@ -1,5 +1,4 @@
 package mediators;
-// todo: Mangler lidt
 
 import model.temperature.Temperature;
 import model.temperature.TemperatureAlarm;
@@ -32,6 +31,10 @@ public class TemperatureModelManager implements TemperatureModel
         this.temperatureList.addTemperature(temperature);
 
         listenerSupport.firePropertyChange("tempChange",old,temperature);
+
+        listenerSupport.firePropertyChange("tempAdded",old,temperature);
+
+
     }
 
 
@@ -74,8 +77,6 @@ public class TemperatureModelManager implements TemperatureModel
     public void removeListener(String propertyName, PropertyChangeListener listener) {
         listenerSupport.removePropertyChangeListener(propertyName,listener);
     }
-
-
 
 
 }

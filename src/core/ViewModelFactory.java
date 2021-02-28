@@ -1,8 +1,6 @@
 package core;
-// todo: everything
 
 
-import mediators.RadiatorModelManager;
 import temperatureSimulatorGUI.viewmodel.TempLineChartViewModel;
 import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 import temperatureSimulatorGUI.viewmodel.ViewModel;
@@ -12,11 +10,8 @@ public class ViewModelFactory {
 
     private ModelFactory modelFactory;
 
-
     private TempLineChartViewModel tempLineChartViewModel;
-
     private TemperatureViewModel temperatureViewModel;
-
     private WarningViewModel warningViewModel;
 
 
@@ -39,9 +34,6 @@ public class ViewModelFactory {
         if (viewName.equals("warning")){
             return getWarningViewModel();
         }
-
-
-
 
         return null;
     }

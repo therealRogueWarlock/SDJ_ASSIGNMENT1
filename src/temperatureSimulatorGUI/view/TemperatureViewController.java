@@ -1,12 +1,11 @@
 package temperatureSimulatorGUI.view;
-// todo: stuff
+
 import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import temperatureSimulatorGUI.viewmodel.TemperatureViewModel;
 import temperatureSimulatorGUI.viewmodel.ViewModel;
 
-import javax.swing.text.View;
 import java.io.IOException;
 
 public class TemperatureViewController implements ViewController
@@ -17,7 +16,6 @@ public class TemperatureViewController implements ViewController
     public Label outputLabelTemp1;
     public Label outputLabelTemp2;
     public Label outputLabelTemp3;
-
 
     private ViewHandler viewHandler;
     private TemperatureViewModel temperatureViewModel;
