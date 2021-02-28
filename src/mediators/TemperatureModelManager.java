@@ -2,6 +2,7 @@ package mediators;
 // todo: Mangler lidt
 
 import model.temperature.Temperature;
+import model.temperature.TemperatureAlarm;
 import model.temperature.TemperatureList;
 
 import java.beans.PropertyChangeListener;
@@ -12,10 +13,13 @@ public class TemperatureModelManager implements TemperatureModel
 
     private PropertyChangeSupport listenerSupport = new PropertyChangeSupport(this);
     private TemperatureList temperatureList;
+    private TemperatureAlarm temperatureAlarm;
+
 
     public TemperatureModelManager()
     {
         temperatureList = new TemperatureList();
+        temperatureAlarm = new TemperatureAlarm();
     }
 
     @Override
@@ -41,14 +45,36 @@ public class TemperatureModelManager implements TemperatureModel
         return temperatureList.getLastTemperature(id);
     }
 
+    public void setAlarmMaxValue(double value){
+        temperatureAlarm.setMaxValue(value);
+    }
+
+    public void setAlarmMinValue(double value){
+        temperatureAlarm.setMinValue(value);
+    }
+
+    public double getAlarmMaxValue(){
+        return temperatureAlarm.getMaxValue();
+    }
+
+    public double getAlarmMinValue(){
+        return temperatureAlarm.getMinValue();
+    }
+
+
+
     @Override
     public void addListener(String propertyName, PropertyChangeListener listener) {
         listenerSupport.addPropertyChangeListener(propertyName,listener);
     }
 
+
     @Override
     public void removeListener(String propertyName, PropertyChangeListener listener) {
         listenerSupport.removePropertyChangeListener(propertyName,listener);
     }
+
+
+
 
 }

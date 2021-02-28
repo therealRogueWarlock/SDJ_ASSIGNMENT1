@@ -15,8 +15,8 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="highValueTextField" layoutX="127.0" layoutY="137.0" />
-      <TextField fx:id="lowValueTextField" layoutX="127.0" layoutY="205.0" />
+      <TextField fx:id="maxValueTextField" layoutX="127.0" layoutY="137.0" />
+      <TextField fx:id="minValueTextField" layoutX="127.0" layoutY="205.0" />
       <Button layoutX="184.0" layoutY="272.0" mnemonicParsing="false" onAction="#temperatureViewButtonPressed" text="Temperature View" />
       <Button layoutX="78.0" layoutY="272.0" mnemonicParsing="false" onAction="#confirmValuesButton" text="Confirm" />
    </children>

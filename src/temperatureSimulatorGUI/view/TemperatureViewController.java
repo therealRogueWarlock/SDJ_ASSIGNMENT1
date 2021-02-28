@@ -46,7 +46,7 @@ public class TemperatureViewController implements ViewController
     }
 
     public void warningButtonPressed(ActionEvent actionEvent) throws IOException {
-        viewHandler.openView("Warning");
+        viewHandler.openView("warning");
     }
 
 

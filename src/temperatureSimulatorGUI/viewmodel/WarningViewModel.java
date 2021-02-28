@@ -3,22 +3,34 @@ package temperatureSimulatorGUI.viewmodel;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import mediators.TemperatureModel;
+import mediators.TemperatureModelManager;
+
 import java.beans.PropertyChangeEvent;
 
 // todo: everything
 public class WarningViewModel implements ViewModel
 {
-    DoubleProperty highWarning;
-    DoubleProperty lowWarning;
+    DoubleProperty maxWarning;
+    DoubleProperty minWarning;
 
-    TemperatureModel temperatureModel;
+    TemperatureModelManager temperatureModelManager;
 
     public WarningViewModel(TemperatureModel temperatureModel)
     {
-        this.temperatureModel = temperatureModel;
+        this.temperatureModelManager = (TemperatureModelManager) temperatureModel;
 
-        highWarning =  new SimpleDoubleProperty();
-        lowWarning =  new SimpleDoubleProperty();
+        maxWarning =  new SimpleDoubleProperty();
+        minWarning =  new SimpleDoubleProperty();
+
+        maxWarning.setValue(this.temperatureModelManager.getAlarmMaxValue());
+        minWarning.setValue(this.temperatureModelManager.getAlarmMinValue());
+
+
+    }
+
+    public void updateAlarmValues(){
+        temperatureModelManager.setAlarmMaxValue(maxWarning.getValue());
+        temperatureModelManager.setAlarmMinValue(minWarning.getValue());
     }
 
     public void spoilerAlert()
@@ -34,14 +46,14 @@ public class WarningViewModel implements ViewModel
 
     }
 
-    public DoubleProperty highWarningProperty()
+    public DoubleProperty maxWarningProperty()
     {
-        return highWarning;
+        return maxWarning;
     }
 
-    public DoubleProperty lowWarningProperty()
+    public DoubleProperty minWarningProperty()
     {
-        return lowWarning;
+        return minWarning;
     }
 
 
